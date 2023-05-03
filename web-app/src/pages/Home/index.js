@@ -46,24 +46,6 @@ export default function Home() {
   }
 
 
-  const updateContact = async (id, payload) => {
-    setFetchingData(true);
-    await axios.put(`${process.env.React_App_API_BASEURL}/contacts/${id}`, payload)
-      .then(res => {
-        setFetchingData(false);
-        if (res.status === 200) {
-          setData(res.data);
-        } else {
-          // setMessage(res.data.message);
-          // setSubmittedForm(true);
-        }
-      })
-      .catch(error => {
-        console.log("error", error);
-        // setMessage(error);
-        setFetchingData(false);
-      });
-  }
 
 
   const getContacts = async (search) => {
@@ -191,6 +173,7 @@ export default function Home() {
       </Modal>
     </>
   }
+  
   return (
     <div className="container mt-5 d-block">
 
@@ -220,7 +203,7 @@ export default function Home() {
           {fetchingData ? <p align="center" className="text-muted p-2 mb-0">Loading...</p> :
             data && data.length > 0 ?
               data.map((contact, index) => (
-                <ListItem key={index} contact={contact} handleDelete={deleteContact} />
+                <ListItem key={index} contact={contact} handleDelete={deleteContact} handleGetdata={getContacts}/>
               )) :
               <p align="center" className="text-muted p-2 mb-0">No data found.</p>
           }
