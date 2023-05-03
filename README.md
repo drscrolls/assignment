@@ -1,4 +1,4 @@
-## Contact App
+## Phone Book App
 
 This repo is made up of two folders: the web app and the backend api
 
