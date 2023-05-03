@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Card from 'react-bootstrap/Card';
 import ListItem from '../../components/listitem';
 import "./style.css";
+import { faAdd, faAddressBook } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function Home() {
@@ -53,11 +54,12 @@ export default function Home() {
   return (
     <div className="container mt-5 d-block">
 
+      <h2 align="center"><FontAwesomeIcon icon={faAddressBook} />  Phone Book App</h2>
       <div className="p-2" style={{display: "flex", flex: 1}}>
         <h4 style={{justifyContents: "start", flex: 1}}>Contacts</h4>
         <div style={{justifyContents: "end"}}>
           <Button variant="primary" onClick={handleShow}>
-              <FontAwesomeIcon icon={["fab", "plus"]} />
+              <FontAwesomeIcon icon={faAdd} style={{marginRight: 5}} />
               Add Contact
             </Button>
         </div>
@@ -73,8 +75,10 @@ export default function Home() {
       <AddContactModal />
       
       <Card style={{width: "100%"}}>
-        <Card.Body>
-          
+        <Card.Body className="p-0">
+              
+        <ListItem />
+        <ListItem />
         <ListItem />
 
 
