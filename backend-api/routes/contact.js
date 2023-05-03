@@ -7,7 +7,14 @@ const router = express.Router();
 router.get('/', async (req, res) => {
     res.set('Access-Control-Allow-Origin', '*');
     try {
-        const contacts = await Contact.find({}).sort({createdAt: -1});
+        let {lastname} = req.query;
+        let contacts = null;
+
+        if(lastname){
+            contacts = await Contact.find({lastname: { $regex: lastname, $options: 'i' }}).sort({createdAt: -1});
+        }else{
+            contacts = await Contact.find({}).sort({createdAt: -1});
+        }
 
         return res.status(200).send({
           message: "All contacts",
