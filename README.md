@@ -24,3 +24,9 @@ This repo is made up of two folders: the web app and the backend api
 The web functions with the backend api. Ensure you have the api set and running before running the web app
 
 ## Enjoy 
+
+
+## Tech:
+• React.js
+• Express.js
+• Mongodb
