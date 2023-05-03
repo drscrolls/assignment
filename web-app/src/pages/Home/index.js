@@ -37,16 +37,10 @@ export default function Home() {
     await axios.delete(`${process.env.React_App_API_BASEURL}/contacts/${id}`)
       .then(res => {
         setFetchingData(false);
-        if (res.status === 200) {
-          setData(res.data);
-        } else {
-          // setMessage(res.data.message);
-          // setSubmittedForm(true);
-        }
+        getContacts();
       })
       .catch(error => {
         console.log("error", error);
-        // setMessage(error);
         setFetchingData(false);
       });
   }
@@ -110,6 +104,11 @@ export default function Home() {
       setError(null);
 
       if (firstname && lastname && phonenumber) {
+
+        if(phonenumber.length != 10) {
+          return setError("Phone number must be 10 digits long");
+        }
+
         setLoading(true);
 
         let payload = {
