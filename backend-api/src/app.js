@@ -3,14 +3,8 @@ const express = require("express");
 const cors = require('cors');
 
 // Create Routes
-const postsRoutes = require('../routes/posts');
-const userRoutes = require('../routes/users');
-const likesRoutes = require('../routes/likes');
-const dislikesRoutes = require('../routes/dislikes');
-const connectionsRoutes = require('../routes/connections');
+const contactRoutes = require('../routes/contact');
 const welcomeRoute = require('../routes/welcome');
-const commentsRoute = require('../routes/comments');
-const chatRoute = require('../routes/chat');
 
 // Setup db and environment
 require('../db/mongoose');
@@ -32,13 +26,7 @@ app.use(cors({
 
 // Setup route paths
 app.use('/', welcomeRoute);
-app.use('/api/auth', userRoutes);
-app.use('/api/comments', commentsRoute);
-app.use('/api/likes', likesRoutes);
-app.use('/api/dislikes', dislikesRoutes);
-app.use('/api/connections', connectionsRoutes);
-app.use('/api/posts', postsRoutes);
-app.use('/api/chat', chatRoute);
+app.use('/api/contacts', contactRoutes);
 
 
 // Start api and listen on port

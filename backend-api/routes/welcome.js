@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     res.status(200).json(
     {
         code: 200,
-        message: "Welcome to the Joul api"
+        message: "Welcome. You have reached the api"
     });
 });
 

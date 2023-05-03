@@ -1,7 +1,4 @@
 const mongoose = require('mongoose');
-const validator = require('validator');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 
 const contactSchema = new mongoose.Schema({
 
@@ -13,7 +10,7 @@ const contactSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    phoneNumber: {
+    phonenumber: {
         type: String,
         trim: true
     }
@@ -22,5 +19,5 @@ const contactSchema = new mongoose.Schema({
 });
 
 
-const Contact = mongoose.model('Contacts', userSchema);
+const Contact = mongoose.model('Contacts', contactSchema);
 module.exports = Contact
